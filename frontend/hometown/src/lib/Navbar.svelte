@@ -77,7 +77,7 @@
         <div class="container-fluid">
             <div class="col-lg-3 d-flex justify-content-start px-5">
                 <a href="/" aria-label="HomeTown">
-                    <img src={logo} height=75px>
+                    <img src={logo} alt="HomeTown logo" height=75px>
                 </a>
             </div>
             <div class="navbar-collapse collapse d-flex justify-content-center col-lg-6" id="navbarNav">
