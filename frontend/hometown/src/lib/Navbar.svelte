@@ -62,7 +62,7 @@
                         <a class="nav-link" href="/news">News</a>
                     </li>
                     <li class="nav-item ms-3 me-3">
-                        <a class="nav-link" href="/payments">Council</a>
+                        <a class="nav-link" href="/council">Council</a>
                     </li>
                 </ul>
             </div>
