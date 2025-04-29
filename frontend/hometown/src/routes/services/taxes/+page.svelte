@@ -25,7 +25,7 @@
 <style>
     :root {
         --primary-green: #2d5a27;
-        --primary-brown: #8b4513;
+        --light-green: #3a7a33;
         --accent-gold: #d4af37;
         --background: #f5f5f0;
         --card-bg: #fff;
@@ -49,7 +49,7 @@
         box-shadow: var(--card-shadow);
         padding: 2rem;
         margin-bottom: 2rem;
-        border: 1px solid rgba(139, 69, 19, 0.1);
+        border: 1px solid rgba(45, 90, 39, 0.1);
         position: relative;
         overflow: hidden;
     }
@@ -81,13 +81,13 @@
         display: block;
         margin-bottom: 0.5rem;
         font-weight: 600;
-        color: var(--primary-brown);
+        color: var(--primary-green);
     }
 
     .form-control {
         width: 100%;
         padding: 0.75rem;
-        border: 1px solid rgba(139, 69, 19, 0.2);
+        border: 1px solid rgba(45, 90, 39, 0.2);
         border-radius: 8px;
         font-size: 1rem;
         background: #fff;
@@ -100,7 +100,7 @@
     }
 
     .upload-area {
-        border: 2px dashed rgba(139, 69, 19, 0.3);
+        border: 2px dashed rgba(45, 90, 39, 0.3);
         border-radius: 8px;
         padding: 2rem;
         text-align: center;
@@ -129,7 +129,7 @@
     }
 
     .submit-btn {
-        background: linear-gradient(90deg, var(--primary-green), var(--primary-brown));
+        background: var(--primary-green);
         color: white;
         border: none;
         border-radius: 8px;
@@ -145,7 +145,7 @@
     }
 
     .submit-btn:hover {
-        background: linear-gradient(90deg, var(--primary-brown), var(--primary-green));
+        background: var(--light-green);
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(43, 43, 43, 0.2);
     }

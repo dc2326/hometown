@@ -39,32 +39,63 @@
 </script>
 
 <style>
+    :root {
+        --primary-green: #2d5a27;
+        --light-green: #3a7a33;
+        --accent-gold: #d4af37;
+        --background: #f5f5f0;
+        --card-bg: #fff;
+        --card-shadow: 0 4px 12px rgba(43, 43, 43, 0.1);
+        --border-radius: 12px;
+        --text-main: #2d2d2d;
+        --text-muted: #666;
+    }
+
     .voting-container {
         max-width: 800px;
         margin: 2rem auto;
         padding: 0 1rem;
+        background: var(--background);
+        min-height: 100vh;
     }
 
     .section {
-        background: white;
-        border-radius: 16px;
-        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
         padding: 2rem;
         margin-bottom: 2rem;
+        border: 1px solid rgba(139, 69, 19, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--primary-green);
     }
 
     .section-title {
-        color: #2d2dff;
+        color: var(--primary-green);
         font-size: 1.5rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     .info-card {
-        border: 1px solid #ececec;
-        border-radius: 12px;
+        border: 1px solid rgba(139, 69, 19, 0.1);
+        border-radius: var(--border-radius);
         padding: 1.5rem;
         margin-bottom: 1rem;
+        background: var(--card-bg);
+        box-shadow: var(--card-shadow);
     }
 
     .info-grid {
@@ -78,13 +109,13 @@
     }
 
     .info-label {
-        color: #6c6c80;
+        color: var(--text-muted);
         font-size: 0.9rem;
     }
 
     .info-value {
         font-weight: 600;
-        color: #2d2dff;
+        color: var(--primary-green);
     }
 
     .form-group {
@@ -95,38 +126,48 @@
         display: block;
         margin-bottom: 0.5rem;
         font-weight: 600;
+        color: var(--primary-green);
     }
 
     .form-control {
         width: 100%;
         padding: 0.75rem;
-        border: 1px solid #d1d5db;
+        border: 1px solid rgba(45, 90, 39, 0.2);
         border-radius: 8px;
         font-size: 1rem;
+        background: #fff;
+        transition: border-color 0.3s;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--primary-green);
     }
 
     .election-card {
-        border: 1px solid #ececec;
-        border-radius: 12px;
+        border: 1px solid rgba(139, 69, 19, 0.1);
+        border-radius: var(--border-radius);
         padding: 1.5rem;
         margin-bottom: 1rem;
+        background: var(--card-bg);
+        box-shadow: var(--card-shadow);
     }
 
     .election-title {
-        color: #2d2dff;
+        color: var(--primary-green);
         font-size: 1.2rem;
         font-weight: 600;
         margin-bottom: 0.5rem;
     }
 
     .election-date {
-        color: #7c3aed;
+        color: var(--primary-green);
         font-weight: 600;
         margin-bottom: 0.5rem;
     }
 
     .election-description {
-        color: #6c6c80;
+        color: var(--text-muted);
         margin-bottom: 1rem;
     }
 
@@ -136,20 +177,22 @@
         font-weight: 600;
         cursor: pointer;
         border: none;
+        transition: all 0.3s;
     }
 
     .btn-primary {
-        background: linear-gradient(90deg, #7c3aed, #2d2dff);
+        background: var(--primary-green);
         color: white;
     }
 
     .btn-secondary {
-        background: #f0f4ff;
-        color: #2d2dff;
+        background: var(--accent-gold);
+        color: white;
     }
 
     .btn:hover {
-        opacity: 0.9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(43, 43, 43, 0.2);
     }
 </style>
 
