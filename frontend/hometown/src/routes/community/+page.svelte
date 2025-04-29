@@ -14,7 +14,7 @@
         {
             name: 'Little League Baseball',
             slug: 'baseball',
-            bannerColor: 'linear-gradient(90deg, var(--primary-brown), var(--primary-green))',
+            bannerColor: 'linear-gradient(90deg, var(--primary-green), var(--primary-brown))',
             description: 'Join the fun! See team photos and upcoming games or practices.',
             images: ['/field.jpg', '/team.jpg'],
             nextEvent: 'Practice: Sat 10am'
@@ -28,7 +28,7 @@
         {
             name: 'Blessed Sacrament Church',
             slug: 'blessed-sacrament-church',
-            bannerColor: 'linear-gradient(90deg, var(--primary-brown), var(--primary-green))',
+            bannerColor: 'linear-gradient(90deg, var(--primary-green), var(--primary-brown))',
             description: 'Next service: Sunday, May 12, 10:30am. 456 Church St. Upcoming: Youth Group, Choir, Potluck.'
         },
         {
@@ -66,58 +66,77 @@
     .top-section {
         max-width: 1200px;
         margin: 2rem auto 1.5rem auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 1.5rem;
+        align-items: start;
+        padding: 0 1rem;
     }
+
     .search-box {
-        flex: 2;
-        min-width: 300px;
+        width: 100%;
     }
+
     .search-input {
         width: 100%;
         padding: 0.75rem 1rem;
         border-radius: var(--border-radius);
-        border: 1px solid rgba(139, 69, 19, 0.2);
+        border: 1px solid rgba(45, 90, 39, 0.2);
         font-size: 1.1rem;
         background: #fff;
-        transition: border-color 0.3s;
+        transition: all 0.3s;
     }
+
     .search-input:focus {
         outline: none;
         border-color: var(--primary-green);
+        box-shadow: 0 0 0 2px rgba(45, 90, 39, 0.1);
     }
+
     .suggested, .invites {
-        flex: 1;
-        min-width: 220px;
         background: var(--card-bg);
         border-radius: var(--border-radius);
         box-shadow: var(--card-shadow);
-        padding: 1rem 1.25rem;
-        border: 1px solid rgba(139, 69, 19, 0.1);
+        padding: 1.2rem;
+        border: 1px solid rgba(45, 90, 39, 0.1);
     }
+
     .section-title {
         color: var(--primary-green);
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(45, 90, 39, 0.1);
     }
+
     .invite-item, .suggest-item {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
         color: var(--text-main);
+        padding: 0.5rem;
+        border-radius: 6px;
+        transition: background 0.2s;
     }
+
+    .invite-item:hover, .suggest-item:hover {
+        background: rgba(45, 90, 39, 0.05);
+    }
+
     .invite-from {
-        color: var(--primary-brown);
-        font-size: 0.95rem;
+        color: var(--primary-green);
+        font-size: 0.9rem;
+        font-weight: 500;
     }
+
     .communities-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 2rem;
         max-width: 1200px;
         margin: 0 auto 2rem auto;
+        padding: 0 1rem;
     }
+
     .community-card {
         background: var(--card-bg);
         border-radius: var(--border-radius);
@@ -126,49 +145,64 @@
         display: flex;
         flex-direction: column;
         min-height: 320px;
-        border: 1px solid rgba(139, 69, 19, 0.1);
+        border: 1px solid rgba(45, 90, 39, 0.1);
+        transition: all 0.3s;
     }
+
+    .community-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(45, 90, 39, 0.15);
+    }
+
     .community-banner {
         padding: 1.2rem 1.5rem;
         color: #fff;
         font-size: 1.5rem;
         font-weight: 700;
         text-shadow: 0 2px 8px rgba(44, 62, 80, 0.12);
-        background: var(--primary-green);
+        background: linear-gradient(90deg, var(--primary-green), #3a7a33);
     }
+
     .community-content {
         flex: 1;
-        padding: 1.2rem 1.5rem;
+        padding: 1.5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
+
     .calendar-preview {
         display: flex;
-        gap: 1rem;
-        margin: 0.5rem 0 1rem 0;
+        gap: 0.75rem;
+        margin: 0.75rem 0 1rem 0;
     }
+
     .calendar-day {
-        background: var(--primary-brown);
+        background: var(--primary-green);
         color: #fff;
         border-radius: 8px;
         padding: 0.5rem 0.75rem;
         text-align: center;
         font-size: 1rem;
         min-width: 48px;
+        box-shadow: 0 2px 4px rgba(45, 90, 39, 0.2);
     }
+
     .photo-preview {
         display: flex;
-        gap: 0.5rem;
-        margin: 0.5rem 0 1rem 0;
+        gap: 0.75rem;
+        margin: 0.75rem 0 1rem 0;
     }
+
     .photo-preview img {
         width: 60px;
         height: 60px;
         object-fit: cover;
         border-radius: 8px;
         border: 2px solid var(--primary-green);
+        box-shadow: 0 2px 4px rgba(45, 90, 39, 0.2);
     }
+
     .view-btn {
         background: var(--primary-green);
         color: #fff;
@@ -182,10 +216,42 @@
         align-self: flex-end;
         transition: all 0.3s;
     }
+
     .view-btn:hover {
-        background: var(--primary-brown);
+        background: #3a7a33;
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(43, 43, 43, 0.2);
+        box-shadow: 0 4px 12px rgba(45, 90, 39, 0.2);
+    }
+
+    .create-community-btn {
+        background: var(--primary-green);
+        color: #fff;
+        border: none;
+        border-radius: var(--border-radius);
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin: 1.5rem auto;
+        display: block;
+        transition: all 0.3s;
+        text-decoration: none;
+        text-align: center;
+        max-width: 200px;
+        box-shadow: 0 2px 4px rgba(45, 90, 39, 0.2);
+    }
+
+    .create-community-btn:hover {
+        background: #3a7a33;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(45, 90, 39, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .top-section {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
     }
 </style>
 
@@ -210,6 +276,8 @@
         {/if}
     </div>
 </div>
+
+<a href="/community/create" class="create-community-btn">Create New Community</a>
 
 <div class="communities-grid">
     {#each communities as c}
