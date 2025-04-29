@@ -63,7 +63,7 @@
     .services-container {
         max-width: 1200px;
         margin: 2rem auto;
-        padding: 0 1rem;
+        padding: 1rem 1rem;
         background: var(--background);
         min-height: 100vh;
     }

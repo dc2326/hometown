@@ -633,7 +633,7 @@
                 more connected hometown for everyone.
             </p>
             <div class="cta-buttons">
-                <a href="/login" class="cta-button">Get Started</a>
+                <a href="/account/login" class="cta-button">Get Started</a>
                 <a href="/about" class="cta-button secondary">Learn More</a>
             </div>
         </div>

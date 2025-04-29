@@ -75,6 +75,7 @@
 
     .search-box {
         width: 100%;
+        align-self: center;
     }
 
     .search-input {
