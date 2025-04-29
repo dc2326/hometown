@@ -32,11 +32,11 @@
     }
 
     .custom {
-        background-color: #2f2ff4;
+        background-color: darkgreen;
     }
 
     .custom:hover {
-        background-color: #7f2df9;
+        background-color: green;
     }
 
 </style>
@@ -67,8 +67,8 @@
                 </ul>
             </div>
             <div class="col-lg-3 d-flex justify-content-end">
-                <button class="px-3 btn btn-primary custom">Sign Up</button>
-                <button class="px-3 ms-1 me-5 btn btn-secondary">Login</button>
+                <a href="/account/register" class="px-3 btn btn-primary custom">Sign Up</a>
+                <a href="/account/login" class="px-3 ms-1 me-5 btn btn-secondary">Login</a>
             </div>
         </div>
     </nav>

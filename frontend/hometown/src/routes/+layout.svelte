@@ -1,5 +1,12 @@
 <style>
+    .page-stuff {
+        position: relative;
+        min-height: 100vh;
+    }
 
+    .container {
+        padding-bottom: 5rem;
+    }
 </style>
 
 <script>
@@ -7,10 +14,12 @@
     import Footer from '$lib/Footer.svelte';
 </script>
 
-<Navbar/>
+<div class="page-stuff">
+    <Navbar/>
 
-<div class="container">
-    <slot />
+    <div class="container">
+        <slot />
+    </div>
+    
+    <Footer/>    
 </div>
-
-<Footer />
