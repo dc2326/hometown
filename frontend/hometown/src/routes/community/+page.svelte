@@ -1,43 +1,14 @@
 <script>
-    let communities = [
-        {
-            name: 'Rides to School',
-            slug: 'rides',
-            bannerColor: 'linear-gradient(90deg, var(--primary-green), var(--primary-brown))',
-            description: 'Find and offer rides for high school students. View and sign up for available slots!',
-            calendarPreview: [
-                { date: 'Mon', slots: 2 },
-                { date: 'Tue', slots: 1 },
-                { date: 'Wed', slots: 3 }
-            ]
-        },
-        {
-            name: 'Little League Baseball',
-            slug: 'baseball',
-            bannerColor: 'linear-gradient(90deg, var(--primary-green), var(--primary-brown))',
-            description: 'Join the fun! See team photos and upcoming games or practices.',
-            images: ['/field.jpg', '/team.jpg'],
-            nextEvent: 'Practice: Sat 10am'
-        },
-        {
-            name: 'Book Club',
-            slug: 'book-club',
-            bannerColor: 'linear-gradient(90deg, var(--primary-green), var(--primary-brown))',
-            description: 'Monthly reads and lively discussions. Next: "The Great Gatsby". Next event: Friday, May 17, 7:00pm at 123 Maple Ave.'
-        },
-        {
-            name: 'Blessed Sacrament Church',
-            slug: 'blessed-sacrament-church',
-            bannerColor: 'linear-gradient(90deg, var(--primary-green), var(--primary-brown))',
-            description: 'Next service: Sunday, May 12, 10:30am. 456 Church St. Upcoming: Youth Group, Choir, Potluck.'
-        },
-        {
-            name: 'Friends of Washington Grove',
-            slug: 'friends-of-washington-grove',
-            bannerColor: 'linear-gradient(90deg, var(--primary-green), var(--primary-brown))',
-            description: 'Help keep the park clean! Next: Spring Cleanup, Sat, May 18, 9:00am. "Looking forward to the next cleanup!"'
-        }
-    ];
+    import {onMount} from 'svelte'
+    import {Communities} from '../../store.js'
+
+    onMount(async function () {
+        const endpoint = 'http://127.0.0.1:8000/api/community/'
+        const response = await fetch(endpoint)
+        const data = await response.json()
+        Communities.set(data)
+    })
+        
 
     let search = '';
     let invites = [
@@ -281,27 +252,25 @@
 <a href="/community/create" class="create-community-btn">Create New Community</a>
 
 <div class="communities-grid">
-    {#each communities as c}
+    {#each $Communities as c}
         <div class="community-card">
             <div class="community-banner">{c.name}</div>
             <div class="community-content">
                 <div>{c.description}</div>
-                {#if c.calendarPreview}
+                <!-- {#if c.calendarPreview}
                     <div class="calendar-preview">
                         {#each c.calendarPreview as day}
                             <div class="calendar-day">{day.date}<br /><span style="font-size:0.9em">{day.slots} slots</span></div>
                         {/each}
                     </div>
-                {/if}
-                {#if c.images}
+                {/if} -->
+                {#if c.image}
                     <div class="photo-preview">
-                        {#each c.images as img}
-                            <img src={img} alt="Community photo" />
-                        {/each}
+                        <img src={c.image} alt="Community photo" />
                     </div>
-                    <div style="color: var(--primary-green); font-weight: 600;">{c.nextEvent}</div>
+                    <div style="color: var(--primary-green); font-weight: 600;">{c.updates}</div>
                 {/if}
-                <a href={`/community/${c.slug}`}><button class="view-btn">View</button></a>
+                <a href={`/community/${c.id}`}><button class="view-btn">View</button></a>
             </div>
         </div>
     {/each}
