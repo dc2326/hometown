@@ -1,44 +1,55 @@
 <style>
     .navbar {
-        transition: top 0.3s;
-        position: static;
-        width: 100%;
-        background-color: white;
-        top: 0;
-        left: 0;
-        z-index: 999;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .nav-link {
-        position: relative;
-        display: inline-block;
-        overflow: hidden;
-    }
-    
-    .nav-link::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 2px;
-        width: 0;
-        background-color: currentColor; /* match text color */
-        transition: width 0.3s ease;
-    }
-    
-    .nav-link:hover::after {
-        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--primary-green);
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        text-decoration: none;
     }
 
-    .custom {
-        background-color: darkgreen;
+    .nav-link:hover {
+        background: rgba(45, 90, 39, 0.1);
+        color: var(--primary-green);
+        transform: translateY(-2px);
     }
 
-    .custom:hover {
-        background-color: green;
+    .btn-primary.custom {
+        background: var(--primary-green);
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
     }
 
+    .btn-primary.custom:hover {
+        background: var(--light-green);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(45, 90, 39, 0.2);
+    }
+
+    .btn-secondary {
+        background: var(--accent-gold);
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background: #e0c060;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
 </style>
 
 <script>
