@@ -526,7 +526,7 @@
 
 <div class="main-container">
     <div class="bulletin-board bulletin">
-        <div class="bulletin-title">Bulletin Board</div>
+        <div class="bulletin-title">John's Bulletin Board</div>
         {#each bulletinMessages as m, i}
             <div class="note">
                 <div class="note-pin"></div>
