@@ -24,7 +24,6 @@
             excerpt: 'Join your neighbors for a day of planting and cleanup at the park this Saturday. All ages welcome!',
             date: 'May 8, 2024',
             readTime: '2 min read',
-            image: '/park.jpg',
             link: '/news/park-volunteer-day'
         }
     ];
@@ -55,18 +54,20 @@
 <style>
 :root {
     --primary-green: #2d5a27;
-    --primary-brown: #8b4513;
+    --light-green: #3a7a33;
     --background: #f5f5f0;
     --card-bg: #fff;
     --border-radius: 12px;
     --text-main: #222;
     --text-muted: #666;
+    --serif: 'Georgia', 'Times New Roman', Times, serif;
+    --sans-serif: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 
 body, .news-bg {
     background: var(--background);
     color: var(--text-main);
-    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    font-family: var(--serif);
 }
 
 .news-main {
@@ -84,32 +85,39 @@ body, .news-bg {
 .nyt-main-article {
     display: flex;
     border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
+    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
     gap: 2rem;
+    cursor: pointer;
 }
 .nyt-main-text {
     flex: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-right: 1.5rem;
 }
 .nyt-main-title {
     font-size: 2.2rem;
     font-weight: 700;
     color: var(--primary-green);
-    margin-bottom: 0.7rem;
-    line-height: 1.1;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    max-width: 90%;
 }
 .nyt-main-excerpt {
     font-size: 1.15rem;
     color: var(--text-main);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    max-width: 95%;
 }
 .nyt-main-meta {
-    color: var(--primary-brown);
+    color: var(--light-green);
     font-size: 0.95rem;
     font-weight: 600;
+    letter-spacing: 0.02em;
 }
 .nyt-main-img {
     flex: 1.2;
@@ -131,7 +139,8 @@ body, .news-bg {
     gap: 1.2rem;
     cursor: pointer;
     border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 1.2rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 .nyt-side-img {
     width: 110px;
@@ -142,21 +151,24 @@ body, .news-bg {
 }
 .nyt-side-content {
     flex: 1;
+    padding-right: 1rem;
 }
 .nyt-side-title {
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--primary-green);
-    margin-bottom: 0.3rem;
-    line-height: 1.15;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
 }
 .nyt-side-excerpt {
     font-size: 0.98rem;
     color: var(--text-main);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
 }
 .nyt-side-meta {
-    color: var(--primary-brown);
+    color: var(--light-green);
     font-size: 0.85rem;
     font-weight: 600;
 }
@@ -164,28 +176,31 @@ body, .news-bg {
 .nyt-lower-row {
     display: flex;
     gap: 2.5rem;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
     border-top: 1px solid #e0e0e0;
-    padding-top: 2rem;
+    padding-top: 2.5rem;
 }
 .nyt-lower-article {
     flex: 1;
     cursor: pointer;
+    padding-right: 1.5rem;
 }
 .nyt-lower-title {
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--primary-green);
-    margin-bottom: 0.3rem;
-    line-height: 1.15;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
 }
 .nyt-lower-excerpt {
     font-size: 0.97rem;
     color: var(--text-main);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
 }
 .nyt-lower-meta {
-    color: var(--primary-brown);
+    color: var(--light-green);
     font-size: 0.82rem;
     font-weight: 600;
 }
@@ -228,9 +243,10 @@ body, .news-bg {
 
 <div class="news-bg">
     <div class="news-main">
+        <h1 style="text-align: center; color: var(--primary-green); font-size: 2.5rem; margin-bottom: 2rem; font-weight: 700;">All Your Local News in One Place</h1>
         <div class="nyt-grid">
             <div>
-                <div class="nyt-main-article">
+                <div class="nyt-main-article" on:click={() => handleClick(mainArticle.link)}>
                     <div class="nyt-main-text">
                         <div class="nyt-main-title">{mainArticle.title}</div>
                         <div class="nyt-main-excerpt">{mainArticle.excerpt}</div>
@@ -251,7 +267,9 @@ body, .news-bg {
             <div class="nyt-sidebar">
                 {#each sidebarArticles as article}
                     <div class="nyt-side-article" on:click={() => handleClick(article.link)}>
-                        <img class="nyt-side-img" src={article.image} alt={article.title} />
+                        {#if article.image}
+                            <img class="nyt-side-img" src={article.image} alt={article.title} />
+                        {/if}
                         <div class="nyt-side-content">
                             <div class="nyt-side-title">{article.title}</div>
                             <div class="nyt-side-excerpt">{article.excerpt}</div>

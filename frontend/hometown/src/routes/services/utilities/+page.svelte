@@ -53,32 +53,63 @@
 </script>
 
 <style>
+    :root {
+        --primary-green: #2d5a27;
+        --light-green: #3a7a33;
+        --accent-gold: #d4af37;
+        --background: #f5f5f0;
+        --card-bg: #fff;
+        --card-shadow: 0 4px 12px rgba(43, 43, 43, 0.1);
+        --border-radius: 12px;
+        --text-main: #2d2d2d;
+        --text-muted: #666;
+    }
+
     .utilities-container {
         max-width: 800px;
         margin: 2rem auto;
         padding: 0 1rem;
+        background: var(--background);
+        min-height: 100vh;
     }
 
     .section {
-        background: white;
-        border-radius: 16px;
-        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
         padding: 2rem;
         margin-bottom: 2rem;
+        border: 1px solid rgba(139, 69, 19, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--primary-green);
     }
 
     .section-title {
-        color: #2d2dff;
+        color: var(--primary-green);
         font-size: 1.5rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     .account-card {
-        border: 1px solid #ececec;
-        border-radius: 12px;
+        border: 1px solid rgba(139, 69, 19, 0.1);
+        border-radius: var(--border-radius);
         padding: 1.5rem;
         margin-bottom: 1rem;
+        background: var(--card-bg);
+        box-shadow: var(--card-shadow);
     }
 
     .account-header {
@@ -89,7 +120,7 @@
     }
 
     .account-id {
-        color: #2d2dff;
+        color: var(--primary-green);
         font-weight: 600;
     }
 
@@ -102,7 +133,7 @@
 
     .status-current {
         background: #f0fff0;
-        color: #43a047;
+        color: var(--primary-green);
     }
 
     .status-past-due {
@@ -116,8 +147,8 @@
         gap: 1rem;
         margin-bottom: 1rem;
         padding: 1rem;
-        background: #f8f9ff;
-        border-radius: 8px;
+        background: rgba(45, 90, 39, 0.02);
+        border-radius: var(--border-radius);
     }
 
     .usage-item {
@@ -127,11 +158,11 @@
     .usage-value {
         font-size: 1.5rem;
         font-weight: 700;
-        color: #2d2dff;
+        color: var(--primary-green);
     }
 
     .usage-label {
-        color: #6c6c80;
+        color: var(--text-muted);
         font-size: 0.9rem;
     }
 
@@ -147,12 +178,13 @@
     }
 
     .detail-label {
-        color: #6c6c80;
+        color: var(--text-muted);
         font-size: 0.9rem;
     }
 
     .detail-value {
         font-weight: 600;
+        color: var(--primary-green);
     }
 
     .button-group {
@@ -166,20 +198,22 @@
         font-weight: 600;
         cursor: pointer;
         border: none;
+        transition: all 0.3s;
     }
 
     .btn-primary {
-        background: linear-gradient(90deg, #7c3aed, #2d2dff);
+        background: var(--primary-green);
         color: white;
     }
 
     .btn-secondary {
-        background: #f0f4ff;
-        color: #2d2dff;
+        background: var(--accent-gold);
+        color: white;
     }
 
     .btn:hover {
-        opacity: 0.9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(43, 43, 43, 0.2);
     }
 </style>
 

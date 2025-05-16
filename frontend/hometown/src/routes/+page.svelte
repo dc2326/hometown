@@ -403,49 +403,120 @@
         font-size: 1.01rem;
     }
 
-    .welcome-banner {
-        background: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.9)), url('/park.jpg');
-        background-size: cover;
-        background-position: center;
-        color: white;
-        padding: 4rem 2rem;
-        border-radius: var(--border-radius);
-        text-align: center;
-        margin: 2rem auto;
-        position: relative;
-        overflow: hidden;
+    .welcome-section {
         max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        text-align: center;
     }
 
-    .welcome-title {
+    .welcome-section h1 {
         font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-
-    .welcome-subtitle {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
-        opacity: 0.9;
-    }
-
-    .welcome-button {
-        background: var(--accent-gold);
         color: var(--primary-green);
-        border: none;
-        border-radius: 30px;
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+        color: var(--text-muted);
+        margin-bottom: 3rem;
+    }
+
+    .welcome-content {
+        text-align: left;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .welcome-content p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .feature-card {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
+        border: 1px solid rgba(45, 90, 39, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .feature-card h3 {
+        color: var(--primary-green);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .feature-card p {
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+
+    .cta-section {
+        text-align: center;
+        margin-top: 4rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .cta-button {
+        background: var(--accent-gold);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--border-radius);
+        text-decoration: none;
         font-weight: 600;
-        cursor: pointer;
         transition: all 0.3s;
     }
 
-    .welcome-button:hover {
+    .cta-button:hover {
+        background: #e0c060;
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(43, 43, 43, 0.2);
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
+
+    .cta-button.secondary {
+        background: var(--primary-green);
+    }
+
+    .cta-button.secondary:hover {
+        background: var(--light-green);
+    }
+
+    @media (max-width: 768px) {
+        .welcome-section {
+            padding: 2rem 1rem;
+        }
+
+        .welcome-section h1 {
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+        }
     }
 </style>
 
@@ -506,8 +577,65 @@
     </table>
 </div>
 
-<div class="welcome-banner">
-    <h1 class="welcome-title">Welcome to Hometown</h1>
-    <p class="welcome-subtitle">Your community, your home, your future</p>
-    <button class="welcome-button" on:click={() => handleClick('/about')}>Learn More</button>
+<div class="welcome-section">
+    <h1>Welcome to Hometown</h1>
+    <p class="subtitle">Your Digital Hub for Community Connection</p>
+    
+    <div class="welcome-content">
+        <p>
+            Hometown is more than just a website – it's your gateway to everything that makes our community special. 
+            We've created a seamless digital experience that brings together all aspects of town life, making it easier 
+            than ever to stay informed, get involved, and connect with your neighbors.
+        </p>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Stay Informed</h3>
+                <p>
+                    Get the latest news about town developments, upcoming events, and important announcements. 
+                    Our news section keeps you updated on everything from park renovations to school achievements, 
+                    ensuring you never miss what's happening in your community.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Access Services</h3>
+                <p>
+                    Find all town services in one convenient place. Whether you need to pay a bill, 
+                    report an issue, or access important documents, our services section makes it simple 
+                    to get what you need, when you need it.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Join Communities</h3>
+                <p>
+                    Discover and connect with local groups that share your interests. From sports teams 
+                    to book clubs, our community section helps you find your place and get involved in 
+                    activities that matter to you.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Engage with Government</h3>
+                <p>
+                    Stay connected with your local government through our council section. Access meeting 
+                    schedules, view agendas, and learn about important decisions that affect our community. 
+                    Your voice matters, and we make it easy to be heard.
+                </p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <p>
+                Whether you're a long-time resident or new to town, Hometown is here to help you 
+                connect, participate, and thrive in our community. Join us in building a stronger, 
+                more connected hometown for everyone.
+            </p>
+            <div class="cta-buttons">
+                <a href="/account/login" class="cta-button">Get Started</a>
+                <a href="/about" class="cta-button secondary">Learn More</a>
+            </div>
+        </div>
+    </div>
 </div>

@@ -9,60 +9,80 @@
 </script>
 
 <style>
+    :root {
+        --primary-green: #2d5a27;
+        --light-green: #3a7a33;
+        --card-bg: #fff;
+        --card-shadow: 0 4px 12px rgba(43, 43, 43, 0.1);
+        --border-radius: 12px;
+        --text-main: #2d2d2d;
+        --text-muted: #666;
+    }
+
     .banner {
-        background: linear-gradient(90deg, #2d2dff, #7c3aed);
+        background: linear-gradient(90deg, var(--primary-green), var(--light-green));
         color: #fff;
-        border-radius: 16px;
+        border-radius: var(--border-radius);
         padding: 1.5rem 2rem;
         margin: 2rem auto 1.5rem auto;
         max-width: 900px;
         font-size: 2rem;
         font-weight: 700;
         text-align: center;
-        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+        box-shadow: 0 2px 8px rgba(45, 90, 39, 0.15);
     }
+
     .gallery {
         display: flex;
         gap: 1.5rem;
         justify-content: center;
         margin: 0 auto 2rem auto;
         max-width: 900px;
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
         padding: 2rem 1rem;
+        border: 1px solid rgba(45, 90, 39, 0.1);
     }
+
     .gallery img {
         width: 220px;
         height: 160px;
         object-fit: cover;
-        border-radius: 12px;
-        border: 2px solid #2d2dff;
-        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+        border-radius: var(--border-radius);
+        border: 2px solid var(--primary-green);
+        box-shadow: 0 2px 8px rgba(45, 90, 39, 0.15);
     }
+
     .calendar {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
         padding: 2rem;
         margin: 0 auto 2rem auto;
         max-width: 900px;
+        border: 1px solid rgba(45, 90, 39, 0.1);
     }
+
     .calendar-table {
         width: 100%;
         border-collapse: collapse;
     }
+
     .calendar-table th, .calendar-table td {
         padding: 1rem;
-        border-bottom: 1px solid #ececec;
+        border-bottom: 1px solid rgba(45, 90, 39, 0.1);
         text-align: left;
     }
+
     .calendar-table th {
-        color: #2d2dff;
+        color: var(--primary-green);
         font-size: 1.1rem;
+        font-weight: 600;
     }
+
     .calendar-table td {
-        color: #7c3aed;
+        color: var(--text-main);
         font-size: 1rem;
     }
 </style>
@@ -76,7 +96,7 @@
 </div>
 
 <div class="calendar">
-    <h2 style="color:#2d2dff; margin-bottom:1rem;">Upcoming Games & Practices</h2>
+    <h2 style="color:var(--primary-green); margin-bottom:1rem;">Upcoming Games & Practices</h2>
     <table class="calendar-table">
         <thead>
             <tr>
